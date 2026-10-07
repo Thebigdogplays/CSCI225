@@ -1,0 +1,28 @@
+:root{
+--img-board: url(../img/Self.jpg);
+}
+
+.page-wrapper{
+    background-image: var(--img-board);
+    position: absolute;
+    right: 30px;
+    width: 80%;
+    height: 100vh;
+
+    border: 10px solid brown;
+}
+
+body{
+    background-color: pink;
+}
+section > h2{
+color: orangered;
+}
+
+article > * {
+    opacity: 0;
+}
+
+article:active > *{
+    opacity: 1;
+}
