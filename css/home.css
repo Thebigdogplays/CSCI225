@@ -182,8 +182,6 @@ tr:nth-child(even) {
     height: 14vh;
     width: 21vw;
     display: block;
-
-    -webkit-user-drag: none;
     user-select: none;
 }
 
