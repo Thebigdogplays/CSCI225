@@ -1,7 +1,9 @@
+@import url('https://googleapis.com');
+
 :root{
---img-board: url(../img/Self.jpg);
---img-footer: url(../img/sign.png);
---img-body: url(../img/fox-background.jpg)
+    --img-board: url(../img/Self.jpg);
+    --img-footer: url(../img/fox-footer.png);
+    --img-body: url(../img/fox-background.jpg)
 }
 
 
@@ -14,28 +16,34 @@ body{
     min-height: 100vh;
 }
 section > h2{
-color: orangered;
+    color: orangered;
 }
 
 article{
     position:absolute;
     font-size: 0px;
     opacity: 0;
-    pointer-events: none
+    pointer-events: none;
+    transition: all 5s ease-in-out;
 }
 
 section:active > article{
     position:fixed;
-    top: 50%;
-    left: 50%;
+    top: 25%;
     z-index: 20;
-    width: 300px;
-    height: 50vh;
     border-radius: 10px 10px 10px 10px;
-    font-size: 10px;
     opacity: 1;
 
-    background-color:brown;
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem);
+    border-color: white;
+    border-style: solid;
+    background-color: pink;
+    color: orangered;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sec-schedule :active > article{
+    font-size: clamp(0.5rem, 0.5vw + 0.3rem, 0.65rem);
 }
 
 section {
@@ -56,10 +64,13 @@ section h2{
 }
 
 a{
-    color: violet;
+    color: orangered;
     text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
+.sec-portfolio p:first-of-type {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 a:hover{
     text-decoration: none;
     color: cyan;
@@ -76,6 +87,17 @@ ol, ul{
 }
 
 p{
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    text-align: justify; 
+}
+
+.sec-portfolio p{
+    font-family: 'Inter', sans-serif;
+}
+
+p::first-letter {
+    font-size: clamp(1.125rem, 1.5vw + 0.8rem, 1.625rem);
 
 }
 /* Section Positioning */
@@ -83,25 +105,67 @@ p{
 .sec-intro{
     position: absolute;
     left: 2.5%;
-    top: 20%;
+    top: 15%;
 }
 .sec-portfolio{
     position: absolute;
     left: 30%;
-    top: 20%;
+    top: 15%;
 }
 .sec-schedule{
     position: absolute;
     left: 52.5%;
-    top: 20%;
+    top: 15%;
 }
 .sec-assignments{
     position: absolute;
     left: 72.5%;
-    top: 20%;
+    top: 15%;
 }
 
-/* End of Section Positioning */
+/* End of Section Positioning and text sizing*/
+
+table, th, td {
+    border: 2px solid white;
+    padding: 1px;
+    vertical-align: top;
+    empty-cells: show;
+}
+
+tr:nth-child(even) {
+    background-color: cyan; /* A standard soft light-gray */
+}
+
+.navbar ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    background-color: pink;
+    border-color: white;
+    border-style: solid;
+    font-weight: bold;
+}
+
+.navbar ul li {
+    display: inline-flex; 
+    align-items: center;
+    margin-right: 25px;   
+}
+
+.navbar ul li::before {
+    content: ""; 
+    width: 12vw;
+    height: 4vh;
+    margin-right: 8px; 
+    background-image: var(--img-footer); 
+    background-repeat: no-repeat; 
+    background-size: contain; 
+}
+
+.sec-portfolio ol{
+    color:orangered;
+}
 
 
 /* ALL FOOTER STUFF */
@@ -115,9 +179,8 @@ p{
     position: fixed;
     bottom: 0;
     right: 0;
-    height: 80px;
-    height: 80px; 
-    width: auto;
+    height: 14vh;
+    width: 21vw;
     display: block;
 
     -webkit-user-drag: none;
@@ -126,7 +189,7 @@ p{
 
 .footer-text {
     position: fixed;
-    top: 92%;  
+    top: 90%;  
     right: 5.5%;
     font-size: max(12px, 1.2vw); 
     color: rgb(0, 0, 0);
@@ -138,7 +201,7 @@ p{
     left: 0;
     width: 175px;
     max-width: 20vw;
-    line-height: 0.5;
+    line-height: 1;
     background-color: White;
     z-index: 20;
 }
